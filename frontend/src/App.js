@@ -5,9 +5,9 @@ import Home from './components/Home';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
-import TransactionConfirmation from './components/TransactionConfirmation';
-import UploadTransaction from './components/UploadTransaction';
+import TransactionPage from './components/TransactionPage.js';
 import ThankYou from './components/ThankYou';
+
 
 
 function App() {
@@ -17,8 +17,7 @@ function App() {
         <Route path="/" element={<Home/>} />
         <Route path="/signup" element={<Signup/>} />
         <Route path="/login" element={<Login/>} />
-        <Route path="/transactions" element={<TransactionConfirmation/>}/>
-        <Route path="/upload-transaction" element={<UploadTransaction/>}/>
+        <Route path="/transaction-page" element={<TransactionPage/>}/>
         <Route path="/thank-you" element={<ThankYou/>}/>
         <Route path="/dashboard" element={<Dashboard/>} />
       </Routes>
