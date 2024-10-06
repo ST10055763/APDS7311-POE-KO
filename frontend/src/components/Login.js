@@ -44,17 +44,17 @@ export default function Login() {
     }
 
     return (
-        <div>
-            <h3>Login</h3>
+        <div className="container mt-5">
+            <h3 className="text-center">Login</h3>
             <form onSubmit={onSubmit}>
                 <div className="form-group">
-                    <label htmlFor="name">UserName</label>
+                    <label htmlFor="name">Username</label>
                     <input
                         type="text"
                         className="form-control"
                         id="name"
                         value={form.name}
-                        onChange={(e) => updateForm({name: e.target.value })}
+                        onChange={(e) => updateForm({ name: e.target.value })}
                     />
                 </div>
                 <div className="form-group">
@@ -77,14 +77,15 @@ export default function Login() {
                         onChange={(e) => updateForm({ password: e.target.value })}
                     />
                 </div>
-                <div className="form-group">
+                <div className="form-group text-center">
                     <input
                         type="submit"
                         value="Login"
-                        className="btn btn-primary"
+                        className="btn btn-primary mt-3"
                     />
                 </div>
             </form>
         </div>
     );
+    
 }

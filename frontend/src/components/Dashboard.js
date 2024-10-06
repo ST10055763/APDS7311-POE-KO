@@ -8,15 +8,19 @@ function Dashboard() {
     // Assuming you have user information stored in localStorage
     const user = {
         firstName: localStorage.getItem("name"), // Retrieve first name from local storage
-      
     };
 
     return (
-        <div>
-            <h2>Welcome, {user.name}!</h2>
-            <button onClick={() => navigate("/transaction-page")} className="btn btn-primary">
-                Go to Transaction Page
-            </button>
+        <div className="container mt-5">
+            <div className="text-center">
+                <h2>Welcome, {user.firstName}!</h2>
+                <button 
+                    onClick={() => navigate("/transaction-page")} 
+                    className="btn btn-primary mt-3"
+                >
+                    Go to Transaction Page
+                </button>
+            </div>
         </div>
     );
 }

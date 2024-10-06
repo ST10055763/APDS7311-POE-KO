@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function TransactionPage() {
     const [form, setForm] = useState({
@@ -11,6 +12,17 @@ export default function TransactionPage() {
         payeeaccountno: "",
         swiftcode: ""
     });
+
+    const navigate = useNavigate();
+
+    const currencyOptions = [
+        { code: 'USD', name: 'United States Dollar' },
+        { code: 'EUR', name: 'Euro' },
+        { code: 'GBP', name: 'British Pound' },
+        { code: 'JPY', name: 'Japanese Yen' },
+        { code: 'AUD', name: 'Australian Dollar' },
+        { code: 'ZAR', name: 'South African Rand' },
+    ];
     
     const [transactions, setTransactions] = useState([]);
 
@@ -71,6 +83,9 @@ export default function TransactionPage() {
                 payeeaccountno: "",
                 swiftcode: ""
             });
+
+            navigate("/thank-you");
+            
         } else {
             console.error("Transaction upload failed");
         }
@@ -112,13 +127,18 @@ export default function TransactionPage() {
                 </div>
                 <div className="form-group">
                     <label htmlFor="paymentcurrency">Payment Currency</label>
-                    <input
-                        type="text"
-                        className="form-control"
+                    <select
                         id="paymentcurrency"
+                        className="form-control"
                         value={form.paymentcurrency}
                         onChange={(e) => updateForm({ paymentcurrency: e.target.value })}
-                    />
+                    >
+                        {currencyOptions.map((currency) => (
+                            <option key={currency.code} value={currency.code}>
+                                {currency.name} ({currency.code})
+                            </option>
+                        ))}
+                    </select>
                 </div>
                 <div className="form-group">
                     <label htmlFor="paymentprovider">Payment Provider</label>
@@ -169,14 +189,7 @@ export default function TransactionPage() {
                 </div>
             </form>
 
-            <h3>Transaction List</h3>
-            <ul>
-                {transactions.map((transaction) => (
-                    <li key={transaction._id}>
-                        {transaction.username} - {transaction.amountpay} {transaction.paymentcurrency}
-                    </li>
-                ))}
-            </ul>
+          
         </div>
     );
 }

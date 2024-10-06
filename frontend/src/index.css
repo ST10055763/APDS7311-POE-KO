@@ -5,9 +5,54 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6; /* Improved line height for readability */
+  background-color: #f8f9fa; /* Light background color for a subtle contrast */
+  color: #212529; /* Default text color for better visibility */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #343a40; /* Darker headings for emphasis */
+  margin-bottom: 1rem; /* Space below headings */
+}
+
+p {
+  margin-bottom: 1rem; /* Space below paragraphs */
+}
+
+a {
+  color: #007bff; /* Default link color */
+  text-decoration: none; /* Remove underline from links */
+}
+
+a:hover {
+  text-decoration: underline; /* Underline on hover for better user experience */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+  background-color: #e9ecef; /* Light background for code snippets */
+  padding: 0.2rem 0.4rem; /* Padding for better readability */
+  border-radius: 0.2rem; /* Slightly rounded corners */
+}
+
+.container {
+  max-width: 960px; /* Set a max width for containers */
+  margin: auto; /* Center the container */
+  padding: 1rem; /* Add some padding */
+}
+
+.btn {
+  border-radius: 0.25rem; /* Rounded button corners */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.btn-primary {
+  background-color: #007bff; /* Primary button color */
+  border-color: #007bff; /* Border color */
+}
+
+.btn-primary:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+  border-color: #0056b3; /* Darker border on hover */
 }

@@ -4,7 +4,7 @@ import express from "express";
 import cors from "cors";
 import users from "./routes/user.mjs";
 import transactions from "./routes/transaction.mjs";
-import authenticateToken from "./middleware/auth.js"; // Import the JWT authentication middleware
+import authenticateToken from "./middleware/auth.mjs"; // Import the JWT authentication middleware
 
 const PORT = 3001;
 const app = express();
