@@ -1,0 +1,72 @@
+/* ThankYou.css */
+
+.thankyou-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensure the container covers the full height of the viewport */
+    background: linear-gradient(to right, #4e54c8, #8f94fb); /* Gradient background */
+    padding: 20px;
+    animation: fadeIn 1s ease; /* Fade in animation */
+}
+
+.thankyou-box {
+    background-color: white; /* White box for content */
+    border-radius: 15px; /* Rounded corners */
+    padding: 40px;
+    text-align: center;
+    max-width: 500px;
+    width: 100%; /* Ensure responsiveness */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition on hover */
+}
+
+.thankyou-box:hover {
+    transform: scale(1.05); /* Scale up on hover */
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15); /* More shadow on hover */
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+p {
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.btn-primary {
+    background-color: #ff7e5f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #e76f55;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 600px) {
+    .thankyou-box {
+        padding: 20px; /* Reduce padding on smaller screens */
+    }
+
+    .btn-primary {
+        padding: 8px 16px; /* Adjust button size */
+    }
+}
