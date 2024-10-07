@@ -43,19 +43,23 @@ export default function TransactionPage() {
         }));
     }
 
-    // Fetch user details from localStorage when the component mounts
+    function generateSWIFTCode() {
+        return Math.floor(1000000000 + Math.random() * 9000000000).toString();
+    }
     useEffect(() => {
         const storedName = localStorage.getItem("name");
         const storedAccountNumber = localStorage.getItem("accountnumber");
+        const swiftCode = generateSWIFTCode();
 
         if (storedName && storedAccountNumber) {
             setForm((prev) => ({
                 ...prev,
                 username: storedName,
                 useraccountno: storedAccountNumber,
+                swiftcode: swiftCode
             }));
         }
-    }, []); // Empty dependency array ensures this runs once when the component mounts
+    }, []); 
 
     // Fetch existing transactions
     useEffect(() => {
@@ -104,7 +108,7 @@ export default function TransactionPage() {
                 paymentprovider: "SWIFT",
                 payeename: "",
                 payeeaccountno: "",
-                swiftcode: ""
+                swiftcode: generateSWIFTCode()
             });
 
             navigate("/thank-you");
@@ -204,6 +208,7 @@ export default function TransactionPage() {
                         id="swiftcode"
                         value={form.swiftcode}
                         onChange={(e) => updateForm({ swiftcode: e.target.value })}
+                        disabled 
                     />
                 </div>
                 <div className="form-group">

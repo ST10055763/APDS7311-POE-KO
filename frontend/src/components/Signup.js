@@ -107,7 +107,7 @@ export default function Signup() {
                     />
                 </div>
 
-                {/* Conditionally render the error message if it exists */}
+               
                 {errorMessage && (
                     <div className="alert alert-danger" role="alert">
                         {errorMessage}
