@@ -1,14 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-// const name = localStorage.getItem("name");
-// const accnum = localStorage.getItem("accountnumber");
-
-// Assuming you have user information stored in localStorage
-// const user = {
-//     name: localStorage.getItem("name"), // Retrieve first name from local storage
-//     accnum: localStorage.getItem("accountnumber")
-// };
+import './TransactionPage.css'; // Import your CSS file
 
 export default function TransactionPage() {
     const [form, setForm] = useState({
@@ -119,108 +111,106 @@ export default function TransactionPage() {
     }
 
     return (
-        <div>
-            <h3>Create Transaction</h3>
-            <form onSubmit={onSubmit}>
-                <div className="form-group">
-                    <label htmlFor="username">Username</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        id="username"
-                        value={form.username}
-                        onChange={(e) => updateForm({ username: e.target.value })}
-                        disabled
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="useraccountno">User Account Number</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        id="useraccountno"
-                        value={form.useraccountno}
-                        onChange={(e) => updateForm({ useraccountno: e.target.value })}
-                        disabled
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="amountpay">Amount to Pay</label>
-                    <input
-                        type="number"
-                        className="form-control"
-                        id="amountpay"
-                        value={form.amountpay}
-                        onChange={(e) => updateForm({ amountpay: e.target.value })}
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="paymentcurrency">Payment Currency</label>
-                    <select
-                        id="paymentcurrency"
-                        className="form-control"
-                        value={form.paymentcurrency}
-                        onChange={(e) => updateForm({ paymentcurrency: e.target.value })}
-                    >
-                        {currencyOptions.map((currency) => (
-                            <option key={currency.code} value={currency.code}>
-                                {currency.name} ({currency.code})
-                            </option>
-                        ))}
-                    </select>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="paymentprovider">Payment Provider</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        id="paymentprovider"
-                        value={"SWIFT"}
-                        onChange={(e) => updateForm({ paymentprovider: e.target.value })}
-                        disabled
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="payeename">Payee Name</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        id="payeename"
-                        value={form.payeename}
-                        onChange={(e) => updateForm({ payeename: e.target.value })}
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="payeeaccountno">Payee Account Number</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        id="payeeaccountno"
-                        value={form.payeeaccountno}
-                        onChange={(e) => updateForm({ payeeaccountno: e.target.value })}
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="swiftcode">SWIFT Code</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        id="swiftcode"
-                        value={form.swiftcode}
-                        onChange={(e) => updateForm({ swiftcode: e.target.value })}
-                        disabled 
-                    />
-                </div>
-                <div className="form-group">
-                    <input
-                        type="submit"
-                        value="Create Transaction"
-                        className="btn btn-primary"
-                    />
-                </div>
-            </form>
-
-          
+        <div className="transaction-container">
+            <div className="form-container">
+                <h3>Create Transaction</h3>
+                <form onSubmit={onSubmit}>
+                    <div className="form-group">
+                        <label htmlFor="username">Username</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="username"
+                            value={form.username}
+                            onChange={(e) => updateForm({ username: e.target.value })}
+                            disabled
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="useraccountno">User Account Number</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="useraccountno"
+                            value={form.useraccountno}
+                            onChange={(e) => updateForm({ useraccountno: e.target.value })}
+                            disabled
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="amountpay">Amount to Pay</label>
+                        <input
+                            type="number"
+                            className="form-control"
+                            id="amountpay"
+                            value={form.amountpay}
+                            onChange={(e) => updateForm({ amountpay: e.target.value })}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="paymentcurrency">Payment Currency</label>
+                        <select
+                            id="paymentcurrency"
+                            className="form-control"
+                            value={form.paymentcurrency}
+                            onChange={(e) => updateForm({ paymentcurrency: e.target.value })}
+                        >
+                            {currencyOptions.map((currency) => (
+                                <option key={currency.code} value={currency.code}>
+                                    {currency.name} ({currency.code})
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="paymentprovider">Payment Provider</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="paymentprovider"
+                            value={"SWIFT"}
+                            disabled
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="payeename">Payee Name</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="payeename"
+                            value={form.payeename}
+                            onChange={(e) => updateForm({ payeename: e.target.value })}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="payeeaccountno">Payee Account Number</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="payeeaccountno"
+                            value={form.payeeaccountno}
+                            onChange={(e) => updateForm({ payeeaccountno: e.target.value })}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="swiftcode">SWIFT Code</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="swiftcode"
+                            value={form.swiftcode}
+                            disabled
+                        />
+                    </div>
+                    <div className="form-group">
+                        <input
+                            type="submit"
+                            value="Create Transaction"
+                            className="btn btn-primary"
+                        />
+                    </div>
+                </form>
+            </div>
         </div>
     );
 }
