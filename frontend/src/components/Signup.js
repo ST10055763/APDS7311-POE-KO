@@ -33,7 +33,7 @@ export default function Signup() {
         });
 
         setForm({name: "", accountnumber:"",idnumber:"", password:""});
-        navigate("/dashboard");
+        navigate("/login");
     }
     return (
         <div className="container mt-5">

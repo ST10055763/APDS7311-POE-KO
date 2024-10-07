@@ -1,13 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+// const name = localStorage.getItem("name");
+// const accnum = localStorage.getItem("accountnumber");
+
+// Assuming you have user information stored in localStorage
+// const user = {
+//     name: localStorage.getItem("name"), // Retrieve first name from local storage
+//     accnum: localStorage.getItem("accountnumber")
+// };
+
 export default function TransactionPage() {
     const [form, setForm] = useState({
         username: "",
         useraccountno: "",
         amountpay: "",
         paymentcurrency: "",
-        paymentprovider: "",
+        paymentprovider: "SWIFT",
         payeename: "",
         payeeaccountno: "",
         swiftcode: ""
@@ -33,6 +42,20 @@ export default function TransactionPage() {
             ...value,
         }));
     }
+
+    // Fetch user details from localStorage when the component mounts
+    useEffect(() => {
+        const storedName = localStorage.getItem("name");
+        const storedAccountNumber = localStorage.getItem("accountnumber");
+
+        if (storedName && storedAccountNumber) {
+            setForm((prev) => ({
+                ...prev,
+                username: storedName,
+                useraccountno: storedAccountNumber,
+            }));
+        }
+    }, []); // Empty dependency array ensures this runs once when the component mounts
 
     // Fetch existing transactions
     useEffect(() => {
@@ -74,11 +97,11 @@ export default function TransactionPage() {
             const newTransaction = await response.json();
             setTransactions((prev) => [...prev, newTransaction]);
             setForm({
-                username: "",
-                useraccountno: "",
+                username: localStorage.getItem("name"), // Ensure it uses the current user
+                useraccountno: localStorage.getItem("accountnumber"),
                 amountpay: "",
                 paymentcurrency: "",
-                paymentprovider: "",
+                paymentprovider: "SWIFT",
                 payeename: "",
                 payeeaccountno: "",
                 swiftcode: ""
@@ -103,6 +126,7 @@ export default function TransactionPage() {
                         id="username"
                         value={form.username}
                         onChange={(e) => updateForm({ username: e.target.value })}
+                        disabled
                     />
                 </div>
                 <div className="form-group">
@@ -113,6 +137,7 @@ export default function TransactionPage() {
                         id="useraccountno"
                         value={form.useraccountno}
                         onChange={(e) => updateForm({ useraccountno: e.target.value })}
+                        disabled
                     />
                 </div>
                 <div className="form-group">
@@ -146,8 +171,9 @@ export default function TransactionPage() {
                         type="text"
                         className="form-control"
                         id="paymentprovider"
-                        value={form.paymentprovider}
+                        value={"SWIFT"}
                         onChange={(e) => updateForm({ paymentprovider: e.target.value })}
+                        disabled
                     />
                 </div>
                 <div className="form-group">
