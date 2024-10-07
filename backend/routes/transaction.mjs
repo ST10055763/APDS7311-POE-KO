@@ -29,4 +29,40 @@ router.post("/upload", checkauth, async (req, res) => {
     res.send(result).status(204);
 });
 
+// Get transactions by username and user account number
+router.get("/transactions", async (req, res) => {
+    try {
+        const { username, useraccountno } = req.query; // Expecting these as query parameters
+
+        // Validate if the required fields are provided
+        if (!username || !useraccountno) {
+            return res.status(400).send("Username and Account Number are required.");
+        }
+
+        // Access your MongoDB collection (e.g., 'transactions')
+        let collection = await db.collection("transactions");
+
+        // Create the query to match both username and account number
+        let query = {
+            username: username,
+            useraccountno: useraccountno
+        };
+
+        // Find matching transactions
+        let result = await collection.find(query).toArray(); // Assuming you want all matching records
+
+        // If no records are found
+        if (result.length === 0) {
+            return res.status(404).send("No matching transactions found.");
+        }
+
+        // Send the matching transactions as the response
+        res.status(200).send(result);
+    } catch (error) {
+        console.error("Error fetching transactions:", error);
+        res.status(500).send("Internal Server Error");
+    }
+});
+
+
 export default router;
