@@ -10,7 +10,11 @@ export default function Signup() {
         password: "",
     });
 
-    const [errorMessage, setErrorMessage] = useState(""); // Error message for password validation
+    const [errors, setErrors] = useState({
+        accountnumber: "",
+        idnumber: "",
+        password: ""
+    }); 
     const navigate = useNavigate();
 
     function updateForm(value) {
@@ -19,20 +23,70 @@ export default function Signup() {
         });
     }
 
-    // Password validation function
-    function validatePassword(password) {
-        const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-        return regex.test(password);
+    function validateForm() {
+        const newErrors = {
+            accountnumber: "",
+            idnumber: "",
+            password: ""
+        };
+
+        const accountRegex = /^\d{8,12}$/;
+        if (!accountRegex.test(form.accountnumber)) {
+            newErrors.accountnumber = "Account number must be between 8 and 12 digits.";
+        }
+
+        const idRegex = /^\d{13}$/;
+        if (!idRegex.test(form.idnumber)) {
+            newErrors.idnumber = "ID number must be exactly 13 digits.";
+        }
+
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        if (!passwordRegex.test(form.password)) {
+            newErrors.password = "Password must meet all the requirements.";
+        }
+
+        setErrors(newErrors);
+        return !newErrors.accountnumber && !newErrors.idnumber && !newErrors.password;
     }
+
+    // Password validation function
+    // function validatePassword(password) {
+    //     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    //     return regex.test(password);
+    // }
+
+    // function validateAccountNumber(accountnumber) {
+    //     const regex = /^[0-9]{8,12}$/;
+    //     return regex.test(accountnumber);
+    // }
+
+    // function validateIDNumber(idnumber) {
+    //     const regex = /^[0-9]{13}$/;
+    //     return regex.test(idnumber);
+    // }
 
     async function onSubmit(e) {
         e.preventDefault();
 
-        // Validate the password before proceeding
-        if (!validatePassword(form.password)) {
-            setErrorMessage("Password must meet all the requirements.");
+        if (!validateForm()) {
             return;
         }
+
+        // Validate the password before proceeding
+        // if (!validatePassword(form.password)) {
+        //     setErrorMessage("Password must meet all the requirements.");
+        //     return;
+        // }
+
+        // if (!validateAccountNumber(form.accountnumber)) {
+        //     setErrorMessage("Account number must be 8 to 12 digits long and contain only numbers.");
+        //     return;
+        // }
+
+        // if (!validateIDNumber(form.idnumber)) {
+        //     setErrorMessage("ID number must be exactly 13 digits long and contain only numbers.");
+        //     return;
+        // }
 
         const newPerson = { ...form };
 
@@ -50,7 +104,7 @@ export default function Signup() {
 
         // Clear form and error message
         setForm({ name: "", accountnumber: "", idnumber: "", password: "" });
-        setErrorMessage(""); // Clear error message
+        //setErrorMessage(""); // Clear error message
         navigate("/login");
     }
 
@@ -72,6 +126,11 @@ export default function Signup() {
                     </div>
                     <div className="form-group">
                         <label htmlFor="accountnumber">Account Number</label>
+                        <ul>
+                            <li>Please ensure your account number is between 8-12 digits</li>
+                            <li>NO LETTERS</li>
+                        </ul>
+                        {errors.accountnumber && <p className="text-danger">{errors.accountnumber}</p>}
                         <input
                             type="text"
                             className="form-control"
@@ -82,6 +141,11 @@ export default function Signup() {
                     </div>
                     <div className="form-group">
                         <label htmlFor="idnumber">ID Number</label>
+                        <ul>
+                        <li>Please ensure your ID number is 13 digits</li>
+                        <li>NO LETTERS</li>
+                        </ul>
+                        {errors.idnumber && <p className="text-danger">{errors.idnumber}</p>}
                         <input
                             type="text"
                             className="form-control"
@@ -101,6 +165,7 @@ export default function Signup() {
                                 <li>At least one special character</li>
                             </ul>
                         </label>
+                        {errors.password && <p className="text-danger">{errors.password}</p>}
                         <input
                             type="password"
                             className="form-control"
@@ -110,12 +175,12 @@ export default function Signup() {
                         />
                     </div>
 
-                    {/* Conditionally render the error message if it exists */}
+                    {/* Conditionally render the error message if it exists
                     {errorMessage && (
                         <div className="alert alert-danger" role="alert">
                             {errorMessage}
                         </div>
-                    )}
+                    )} */}
 
 <div className="hero-buttons">
     <button type="submit" className="btn btn-primary mt-3" style={{ display: "flex", alignItems: "center" }}>
