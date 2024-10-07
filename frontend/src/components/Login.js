@@ -7,6 +7,7 @@ export default function Login() {
         accountnumber: "",
         password: "",
     });
+    const [error, setError] = useState(""); // State for error message
     const navigate = useNavigate();
 
     function updateForm(value) {
@@ -29,23 +30,30 @@ export default function Login() {
         });
 
         const data = await response.json();
-        const { token, name } = data;
-        console.log(name + " " + token)
 
-        localStorage.setItem("jwt", token);
-        localStorage.setItem("name", name);
-        localStorage.setItem("accountnumber", form.accountnumber);
+        // Check if login was successful
+        if (response.ok) { // HTTP 200
+            const { token, name } = data;
+            console.log(name + " " + token);
 
-        // Clear the form
-        setForm({ name: "", accountnumber: "", password: "" });
+            localStorage.setItem("jwt", token);
+            localStorage.setItem("name", name);
+            localStorage.setItem("accountnumber", form.accountnumber);
 
-        // Navigate to dashboard on successful login
-        navigate("/dashboard");
+            // Clear the form
+            setForm({ name: "", accountnumber: "", password: "" });
+
+            // Navigate to dashboard on successful login
+            navigate("/dashboard");
+        } else { // HTTP 401 or other error
+            setError(data.message || "Invalid credentials"); // Display error message
+        }
     }
 
     return (
         <div className="container mt-5">
             <h3 className="text-center">Login</h3>
+            {error && <div className="alert alert-danger">{error}</div>} {/* Error message display */}
             <form onSubmit={onSubmit}>
                 <div className="form-group">
                     <label htmlFor="name">Username</label>
@@ -87,5 +95,4 @@ export default function Login() {
             </form>
         </div>
     );
-    
 }
