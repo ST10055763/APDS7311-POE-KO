@@ -24,4 +24,5 @@ KO International Bank is a web application that allows users to register, log in
 - **Validation:** Regular expressions for form validation
 
 ## YouTube Link (submission video)
--	
+-	https://www.youtube.com/watch?v=T2n3GGBQo_c
+  
