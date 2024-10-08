@@ -14,18 +14,49 @@
     margin-bottom: 20px;
 }
 
+.button-group {
+    display: flex;
+    gap: 10px; /* Adds space between the buttons */
+    justify-content: center; /* Centers the buttons horizontally */
+    margin-top: 20px; /* Adjust margin as needed */
+}
+
 .btn-orange {
-    background-color: #ff7f50; /* Change this to your desired orange color */
-    color: white; /* Text color */
-    border: none; /* Remove border */
-    padding: 10px 20px; /* Padding for a better size */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer on hover */
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    background-color: #ff7f50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .btn-orange:hover {
-    background-color: #ff5722; /* Darker orange on hover */
+    background-color: #ff5722;
+}
+
+.btn-orange svg {
+    margin-right: 8px; /* Space between the icon and the text */
+    vertical-align: middle; /* Aligns the icon with the text */
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.btn-danger svg {
+    margin-right: 8px; /* Adds space between the icon and the text */
+    vertical-align: middle; /* Aligns the icon with the text */
 }
 
 
