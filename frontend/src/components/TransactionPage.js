@@ -148,7 +148,7 @@ export default function TransactionPage() {
                         />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="paymentcurrency">Payment Currency</label>
+                        <label htmlFor="paymentcurrency">Payment Currency (Select from Dropdown)</label>
                         <select
                             id="paymentcurrency"
                             className="form-control"
