@@ -16,7 +16,7 @@ const options = {
 
 // Configure CORS to allow only frontend origin
 app.use(cors({
-    origin: 'http://localhost:3000', // Allow only the frontend origin
+    origin: 'https://localhost:3000', // Allow only the frontend origin
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
     allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
     credentials: true
