@@ -22,7 +22,8 @@ router.post("/upload", checkauth, async (req, res) => {
         paymentprovider: req.body.paymentprovider,
         payeename: req.body.payeename,
         payeeaccountno: req.body.payeeaccountno,
-        swiftcode: req.body.swiftcode
+        swiftcode: req.body.swiftcode,
+        requeststatus: "pending"
     };
     let collection = await db.collection("transactions");
     let result = await collection.insertOne(newDocument);

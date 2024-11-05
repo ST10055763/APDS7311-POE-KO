@@ -106,6 +106,7 @@ function Dashboard() {
                                     <th>Payee Name</th>
                                     <th>Payee Account No</th>
                                     <th>SWIFT Code</th>
+                                    <th>Request Status</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -119,6 +120,7 @@ function Dashboard() {
                                         <td>{transaction.payeename}</td>
                                         <td>{transaction.payeeaccountno}</td>
                                         <td>{transaction.swiftcode}</td>
+                                        <td>{transaction.requeststatus}</td>
                                     </tr>
                                 ))}
                             </tbody>
