@@ -1,6 +1,7 @@
 import https from "https";
 import fs from "fs";
 import express from "express";
+import rateLimit from "express-rate-limit"; // Import express-rate-limit
 import cors from "cors";
 import helmet from "helmet"; // Import helmet for security
 import users from "./routes/user.mjs";
@@ -14,6 +15,16 @@ const options = {
     key: fs.readFileSync('keys/privatekey.pem'),
     cert: fs.readFileSync('keys/certificate.pem')
 };
+
+// Set up rate limiting
+const limiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100, // Limit each IP to 100 requests per windowMs
+    message: "Too many requests from this IP, please try again later."
+});
+
+// Apply rate limiting to all requests
+app.use(limiter);
 
 // Use helmet to enhance security with HTTP headers
 app.use(helmet());
