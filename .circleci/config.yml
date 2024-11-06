@@ -26,7 +26,7 @@ jobs:
           command: echo \"No test specified in package.json\"
       - run:
           name: Run ESLint
-          command: npx eslint . --ext .js,.mjs --quiet
+          command: npx eslint .
       - run:
           name: Run tests with coverage
           command: npm test -- --coverage
