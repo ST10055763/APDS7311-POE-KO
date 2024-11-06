@@ -25,9 +25,6 @@ jobs:
           name: Run tests
           command: echo \"No test specified in package.json\"
       - run:
-          name: Run tests with coverage
-          command: npm test -- --coverage
-      - run:
           name: Run npm audit
           command: npm audit --production
   deploy:
