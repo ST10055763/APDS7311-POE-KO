@@ -8,18 +8,32 @@ function EmployeeDash() {
     const [loading, setLoading] = useState(true);
 
     const user = {
-        firstName: localStorage.getItem("name"),
+        //firstName: localStorage.getItem("name"),
         username: localStorage.getItem("name"),
-        useraccountno: localStorage.getItem("accountnumber"),
+        //useraccountno: localStorage.getItem("accountnumber"),
     };
 
     useEffect(() => {
         // Fetch all transactions from the backend
         const fetchTransactions = async () => {
             try {
-                const response = await fetch('https://localhost:3001/transaction'); // Update the endpoint if needed
+                // Log the JWT token to ensure it's correctly fetched from localStorage
+                console.log("JWT token:", localStorage.getItem("jwt"));
+    
+                // Set up headers with authorization
+                const headers = {
+                    "Authorization": `Bearer ${localStorage.getItem("jwt")}`,
+                    "Content-Type": "application/json"
+                };
+    
+                const response = await fetch('https://localhost:3001/transaction/getpendingtransactions', {
+                    method: "GET", // Assuming this is a GET request
+                    headers: headers, // Add authorization headers
+                });
+    
                 if (response.ok) {
                     const data = await response.json();
+                    console.log("Fetched transactions:", data); // Log the fetched data to the console
                     setTransactions(data); // Set the transactions state
                 } else {
                     console.error("Failed to fetch transactions");
@@ -28,7 +42,7 @@ function EmployeeDash() {
                 console.error("Error fetching transactions", error);
             }
         };
-        
+    
         fetchTransactions();
     }, []);
 
@@ -82,41 +96,40 @@ function EmployeeDash() {
                 ) : (
                     <>
                         <h3 className="transaction-history-header">Transaction History</h3>
-                        <table>
-                <thead>
-                    <tr>
-                        <th>Username</th>
-                        <th>Account Number</th>
-                        <th>Amount</th>
-                        <th>Currency</th>
-                        <th>Payment Provider</th>
-                        <th>Payee Name</th>
-                        <th>Payee Account Number</th>
-                        <th>Swift Code</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {transactions.map((transaction) => (
-                        <tr key={transaction._id}>
-                            <td>{transaction.username}</td>
-                            <td>{transaction.useraccountno}</td>
-                            <td>{transaction.amountpay}</td>
-                            <td>{transaction.paymentcurrency}</td>
-                            <td>{transaction.paymentprovider}</td>
-                            <td>{transaction.payeename}</td>
-                            <td>{transaction.payeeaccountno}</td>
-                            <td>{transaction.swiftcode}</td>
-                            <td>{transaction.requeststatus}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+                        <table className="table">
+                            <thead>
+                                <tr>
+                                    <th>Username</th>
+                                    <th>Account Number</th>
+                                    <th>Amount Pay</th>
+                                    <th>Currency</th>
+                                    <th>Provider</th>
+                                    <th>Payee Name</th>
+                                    <th>Payee Account No</th>
+                                    <th>SWIFT Code</th>
+                                    <th>Request Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {transactions.map(transaction => (
+                                    <tr key={transaction._id}>
+                                        <td>{transaction.username}</td>
+                                        <td>{transaction.useraccountno}</td>
+                                        <td>{transaction.amountpay}</td>
+                                        <td>{transaction.paymentcurrency}</td>
+                                        <td>{transaction.paymentprovider}</td>
+                                        <td>{transaction.payeename}</td>
+                                        <td>{transaction.payeeaccountno}</td>
+                                        <td>{transaction.swiftcode}</td>
+                                        <td>{transaction.requeststatus}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
                     </>
                 )}
             </div>
         </div>
     );
 }
-
 export default EmployeeDash;
