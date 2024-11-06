@@ -65,5 +65,61 @@ router.get("/transactions", async (req, res) => {
     }
 });
 
+// endpoint for employeedash (pending transactions only)
+router.get("/getpendingtransactions", async(req, res) => {
+    try{
+        // Access your MongoDB collection (e.g., 'transactions')
+        let collection = await db.collection("transactions");
+
+        // Create the query to find pending transactions
+        let query = {
+            requeststatus: "Pending",
+        };
+
+        // Find matching transactions
+        let result = await collection.find(query).toArray(); // Assuming you want all matching records
+
+        // If no records are found
+        if (result.length === 0) {
+            return res.status(404).send("No matching transactions found.");
+        }
+
+        // Send the matching transactions as the response
+        res.status(200).send(result);
+
+    } catch (error) {
+        console.error("Error fetching transactions:", error);
+        res.status(500).send("Internal Server Error");
+    }
+});
+
+// endpoint for employeeswift (approved transactions only)
+router.get("/getapprovedtransactions", async(req, res) => {
+    try{
+        // Access your MongoDB collection (e.g., 'transactions')
+        let collection = await db.collection("transactions");
+
+        // Create the query to find pending transactions
+        let query = {
+            requeststatus: "Approved",
+        };
+
+        // Find matching transactions
+        let result = await collection.find(query).toArray(); // Assuming you want all matching records
+
+        // If no records are found
+        if (result.length === 0) {
+            return res.status(404).send("No matching transactions found.");
+        }
+
+        // Send the matching transactions as the response
+        res.status(200).send(result);
+
+    } catch (error) {
+        console.error("Error fetching transactions:", error);
+        res.status(500).send("Internal Server Error");
+    }
+});
+
 
 export default router;
