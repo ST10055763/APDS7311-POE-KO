@@ -34,7 +34,7 @@ export default function Login() {
 
         // Check if login was successful
         if (response.ok) { // HTTP 200
-            const { token, name } = data;
+            const { code,token, name } = data;
             console.log(name + " " + token);
 
             localStorage.setItem("jwt", token);
@@ -43,9 +43,15 @@ export default function Login() {
 
             // Clear the form
             setForm({ name: "", accountnumber: "", password: "" });
-
+            if (code === 1) {
+                // Employee login successful
+                navigate("/employee-dash")
+            } else if (code === 2) {
+                // Customer login successful
+                navigate("/dashboard");
+            }
             // Navigate to dashboard on successful login
-            navigate("/dashboard");
+            //navigate("/dashboard");
         } else { // HTTP 401 or other error
             setError(data.message || "Invalid credentials"); // Display error message
         }
