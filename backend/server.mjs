@@ -2,6 +2,7 @@ import https from "https";
 import fs from "fs";
 import express from "express";
 import cors from "cors";
+import helmet from "helmet"; // Import helmet for security
 import users from "./routes/user.mjs";
 import transactions from "./routes/transaction.mjs";
 import authenticateToken from "./middleware/auth.mjs"; // Import the JWT authentication middleware
@@ -13,6 +14,9 @@ const options = {
     key: fs.readFileSync('keys/privatekey.pem'),
     cert: fs.readFileSync('keys/certificate.pem')
 };
+
+// Use helmet to enhance security with HTTP headers
+app.use(helmet());
 
 // Configure CORS to allow only frontend origin
 app.use(cors({

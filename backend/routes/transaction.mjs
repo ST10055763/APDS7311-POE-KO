@@ -23,7 +23,7 @@ router.post("/upload", checkauth, async (req, res) => {
         payeename: req.body.payeename,
         payeeaccountno: req.body.payeeaccountno,
         swiftcode: req.body.swiftcode,
-        requeststatus: "pending"
+        requeststatus: "Pending"
     };
     let collection = await db.collection("transactions");
     let result = await collection.insertOne(newDocument);
