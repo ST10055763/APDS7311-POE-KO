@@ -40,12 +40,14 @@ function EmployeeDash() {
                 }
             } catch (error) {
                 console.error("Error fetching transactions", error);
+            } finally {
+                setLoading(false); // Ensure loading is set to false in all cases
             }
         };
     
         fetchTransactions();
     }, []);
-
+    
     const handleLogout =() =>{
         localStorage.removeItem("name");
         localStorage.removeItem("jwt");
