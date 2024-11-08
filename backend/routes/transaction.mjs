@@ -101,7 +101,7 @@ router.get("/getapprovedtransactions", async(req, res) => {
 
         // Create the query to find pending transactions
         let query = {
-            requeststatus: "Approved",
+            requeststatus: "Approved (Verified)",
         };
 
         // Find matching transactions
@@ -126,7 +126,37 @@ router.patch("/updatetoapproved/:id", async (req, res) => {
     const query = {_id: new ObjectId(req.params.id)};
     const updates = {
         $set: {
-            requeststatus: "Approved"
+            requeststatus: "Approved (Verified)"
+        }
+    };
+
+    let collection = await db.collection("transactions");
+    let result = await collection.updateOne(query, updates);
+
+    res.send(result).status(200);
+})
+
+// endpoint for setting a transaction to Rejected
+router.patch("/updatetorejected/:id", async (req, res) => {
+    const query = {_id: new ObjectId(req.params.id)};
+    const updates = {
+        $set: {
+            requeststatus: "Rejected"
+        }
+    };
+
+    let collection = await db.collection("transactions");
+    let result = await collection.updateOne(query, updates);
+
+    res.send(result).status(200);
+})
+
+// endpoint for sending a transaction to SWIFT for processing
+router.patch("/updatetosubmittedtoswift/:id", async (req, res) => {
+    const query = {_id: new ObjectId(req.params.id)};
+    const updates = {
+        $set: {
+            requeststatus: "Forwarded to SWIFT for Payment"
         }
     };
 
