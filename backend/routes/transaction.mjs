@@ -121,5 +121,20 @@ router.get("/getapprovedtransactions", async(req, res) => {
     }
 });
 
+// endpoint for setting a trabsaction to approved
+router.patch("/updatetoapproved/:id", async (req, res) => {
+    const query = {_id: new ObjectId(req.params.id)};
+    const updates = {
+        $set: {
+            requeststatus: "Approved"
+        }
+    };
+
+    let collection = await db.collection("transactions");
+    let result = await collection.updateOne(query, updates);
+
+    res.send(result).status(200);
+})
+
 
 export default router;
