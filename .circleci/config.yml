@@ -63,7 +63,7 @@ jobs:
       - run:
           command: |
             cd backend
-            npm run test-api &
+            npm run test-api
       - attach_workspace:
           at: ~/workspace
 workflows:
