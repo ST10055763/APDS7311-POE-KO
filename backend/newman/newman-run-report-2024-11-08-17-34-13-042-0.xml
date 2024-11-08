@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="APDSPOENT" tests="9" time="0.000">
+  <testsuite name="https://localhost:3001/user/login" id="1a0aad6a-28a2-4311-ba01-4472a39b440c" timestamp="2024-11-08T17:34:11.621Z" tests="6" failures="5" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: certificate has expired
+    at TLSSocket.onConnectSecure (node:_tls_wrap:1674:34)
+    at TLSSocket.emit (node:events:519:28)
+    at TLSSocket._finishInit (node:_tls_wrap:1085:8)
+    at ssl.onhandshakedone (node:_tls_wrap:871:12)
+
+---
+]]></system-err>
+    <testcase name="Status code is 200" time="0.000" classname="HttpsLocalhost3001UserLogin">
+      <failure type="AssertionFailure" message="expected PostmanResponse{ …(5) } to have property 'code'">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 63f13934-7d69-4b79-9e37-e1bfe69fa1c7.]]>
+        <![CDATA[Collection name: APDSPOENT.]]>
+        <![CDATA[Request name: https://localhost:3001/user/login.]]>
+        <![CDATA[Test description: Status code is 200.]]>
+        <![CDATA[Error message: expected PostmanResponse{ …(5) } to have property 'code'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected PostmanResponse{ …(5) } to have property 'code'
+   at Object.eval sandbox-script.js:1:1).]]>
+      </failure>
+    </testcase>
+    <testcase name="Status code is 401 for failed login" time="0.000" classname="HttpsLocalhost3001UserLogin"/>
+    <testcase name="Response has a token for successful login" time="0.000" classname="HttpsLocalhost3001UserLogin">
+      <failure type="AssertionFailure" message="&quot;undefined&quot; is not valid JSON">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 63f13934-7d69-4b79-9e37-e1bfe69fa1c7.]]>
+        <![CDATA[Collection name: APDSPOENT.]]>
+        <![CDATA[Request name: https://localhost:3001/user/login.]]>
+        <![CDATA[Test description: Response has a token for successful login.]]>
+        <![CDATA[Error message: "undefined" is not valid JSON.]]>
+        <![CDATA[Stacktrace: JSONError: "undefined" is not valid JSON
+   at Object.eval sandbox-script.js:3:1).]]>
+      </failure>
+    </testcase>
+    <testcase name="Correct user type code in response" time="0.000" classname="HttpsLocalhost3001UserLogin">
+      <failure type="AssertionFailure" message="&quot;undefined&quot; is not valid JSON">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 63f13934-7d69-4b79-9e37-e1bfe69fa1c7.]]>
+        <![CDATA[Collection name: APDSPOENT.]]>
+        <![CDATA[Request name: https://localhost:3001/user/login.]]>
+        <![CDATA[Test description: Correct user type code in response.]]>
+        <![CDATA[Error message: "undefined" is not valid JSON.]]>
+        <![CDATA[Stacktrace: JSONError: "undefined" is not valid JSON
+   at Object.eval sandbox-script.js:4:1).]]>
+      </failure>
+    </testcase>
+    <testcase name="Check response message" time="0.000" classname="HttpsLocalhost3001UserLogin">
+      <failure type="AssertionFailure" message="&quot;undefined&quot; is not valid JSON">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 63f13934-7d69-4b79-9e37-e1bfe69fa1c7.]]>
+        <![CDATA[Collection name: APDSPOENT.]]>
+        <![CDATA[Request name: https://localhost:3001/user/login.]]>
+        <![CDATA[Test description: Check response message.]]>
+        <![CDATA[Error message: "undefined" is not valid JSON.]]>
+        <![CDATA[Stacktrace: JSONError: "undefined" is not valid JSON
+   at Object.eval sandbox-script.js:5:1).]]>
+      </failure>
+    </testcase>
+    <testcase name="Token is a valid JWT" time="0.000" classname="HttpsLocalhost3001UserLogin">
+      <failure type="AssertionFailure" message="&quot;undefined&quot; is not valid JSON">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 63f13934-7d69-4b79-9e37-e1bfe69fa1c7.]]>
+        <![CDATA[Collection name: APDSPOENT.]]>
+        <![CDATA[Request name: https://localhost:3001/user/login.]]>
+        <![CDATA[Test description: Token is a valid JWT.]]>
+        <![CDATA[Error message: "undefined" is not valid JSON.]]>
+        <![CDATA[Stacktrace: JSONError: "undefined" is not valid JSON
+   at Object.eval sandbox-script.js:6:1).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="https://localhost:3001/user/login" id="ecf6f57a-7e02-4469-ad92-c8338cb260aa" timestamp="2024-11-08T17:34:11.621Z" tests="6" failures="5" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: certificate has expired
+    at TLSSocket.onConnectSecure (node:_tls_wrap:1674:34)
+    at TLSSocket.emit (node:events:519:28)
+    at TLSSocket._finishInit (node:_tls_wrap:1085:8)
+    at ssl.onhandshakedone (node:_tls_wrap:871:12)
+
+---
+]]></system-err>
+    <testcase name="Status code is 200" time="0.000" classname="HttpsLocalhost3001UserLogin">
+      <failure type="AssertionFailure" message="expected PostmanResponse{ …(5) } to have property 'code'">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 63f13934-7d69-4b79-9e37-e1bfe69fa1c7.]]>
+        <![CDATA[Collection name: APDSPOENT.]]>
+        <![CDATA[Request name: https://localhost:3001/user/login.]]>
+        <![CDATA[Test description: Status code is 200.]]>
+        <![CDATA[Error message: expected PostmanResponse{ …(5) } to have property 'code'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected PostmanResponse{ …(5) } to have property 'code'
+   at Object.eval sandbox-script.js:1:2).]]>
+      </failure>
+    </testcase>
+    <testcase name="Status code is 401 for failed login" time="0.000" classname="HttpsLocalhost3001UserLogin"/>
+    <testcase name="Response has a token for successful login" time="0.000" classname="HttpsLocalhost3001UserLogin">
+      <failure type="AssertionFailure" message="&quot;undefined&quot; is not valid JSON">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 63f13934-7d69-4b79-9e37-e1bfe69fa1c7.]]>
+        <![CDATA[Collection name: APDSPOENT.]]>
+        <![CDATA[Request name: https://localhost:3001/user/login.]]>
+        <![CDATA[Test description: Response has a token for successful login.]]>
+        <![CDATA[Error message: "undefined" is not valid JSON.]]>
+        <![CDATA[Stacktrace: JSONError: "undefined" is not valid JSON
+   at Object.eval sandbox-script.js:3:2).]]>
+      </failure>
+    </testcase>
+    <testcase name="Correct user type code in response" time="0.000" classname="HttpsLocalhost3001UserLogin">
+      <failure type="AssertionFailure" message="&quot;undefined&quot; is not valid JSON">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 63f13934-7d69-4b79-9e37-e1bfe69fa1c7.]]>
+        <![CDATA[Collection name: APDSPOENT.]]>
+        <![CDATA[Request name: https://localhost:3001/user/login.]]>
+        <![CDATA[Test description: Correct user type code in response.]]>
+        <![CDATA[Error message: "undefined" is not valid JSON.]]>
+        <![CDATA[Stacktrace: JSONError: "undefined" is not valid JSON
+   at Object.eval sandbox-script.js:4:2).]]>
+      </failure>
+    </testcase>
+    <testcase name="Check response message" time="0.000" classname="HttpsLocalhost3001UserLogin">
+      <failure type="AssertionFailure" message="&quot;undefined&quot; is not valid JSON">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 63f13934-7d69-4b79-9e37-e1bfe69fa1c7.]]>
+        <![CDATA[Collection name: APDSPOENT.]]>
+        <![CDATA[Request name: https://localhost:3001/user/login.]]>
+        <![CDATA[Test description: Check response message.]]>
+        <![CDATA[Error message: "undefined" is not valid JSON.]]>
+        <![CDATA[Stacktrace: JSONError: "undefined" is not valid JSON
+   at Object.eval sandbox-script.js:5:2).]]>
+      </failure>
+    </testcase>
+    <testcase name="Token is a valid JWT" time="0.000" classname="HttpsLocalhost3001UserLogin">
+      <failure type="AssertionFailure" message="&quot;undefined&quot; is not valid JSON">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 63f13934-7d69-4b79-9e37-e1bfe69fa1c7.]]>
+        <![CDATA[Collection name: APDSPOENT.]]>
+        <![CDATA[Request name: https://localhost:3001/user/login.]]>
+        <![CDATA[Test description: Token is a valid JWT.]]>
+        <![CDATA[Error message: "undefined" is not valid JSON.]]>
+        <![CDATA[Stacktrace: JSONError: "undefined" is not valid JSON
+   at Object.eval sandbox-script.js:6:2).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="https://localhost:3001/transaction" id="d3a9bcbb-e0b3-4001-9887-b6382ba854f0" timestamp="2024-11-08T17:34:11.621Z" tests="2" failures="4" errors="2" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: certificate has expired
+    at TLSSocket.onConnectSecure (node:_tls_wrap:1674:34)
+    at TLSSocket.emit (node:events:519:28)
+    at TLSSocket._finishInit (node:_tls_wrap:1085:8)
+    at ssl.onhandshakedone (node:_tls_wrap:871:12)
+
+---
+Iteration: 0
+RequestError: Error: certificate has expired
+    at TLSSocket.onConnectSecure (node:_tls_wrap:1674:34)
+    at TLSSocket.emit (node:events:519:28)
+    at TLSSocket._finishInit (node:_tls_wrap:1085:8)
+    at ssl.onhandshakedone (node:_tls_wrap:871:12)
+
+---
+]]></system-err>
+    <testcase name="Status code is 200" time="0.000" classname="HttpsLocalhost3001Transaction">
+      <failure type="AssertionFailure" message="expected PostmanResponse{ …(5) } to have property 'code'">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: 63f13934-7d69-4b79-9e37-e1bfe69fa1c7.]]>
+        <![CDATA[Collection name: APDSPOENT.]]>
+        <![CDATA[Request name: https://localhost:3001/transaction.]]>
+        <![CDATA[Test description: Status code is 200.]]>
+        <![CDATA[Error message: expected PostmanResponse{ …(5) } to have property 'code'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected PostmanResponse{ …(5) } to have property 'code'
+   at Object.eval sandbox-script.js:1:3).]]>
+      </failure>
+    </testcase>
+    <testcase name="Response is an array of records" time="0.000" classname="HttpsLocalhost3001Transaction">
+      <failure type="AssertionFailure" message="&quot;undefined&quot; is not valid JSON">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: 63f13934-7d69-4b79-9e37-e1bfe69fa1c7.]]>
+        <![CDATA[Collection name: APDSPOENT.]]>
+        <![CDATA[Request name: https://localhost:3001/transaction.]]>
+        <![CDATA[Test description: Response is an array of records.]]>
+        <![CDATA[Error message: "undefined" is not valid JSON.]]>
+        <![CDATA[Stacktrace: JSONError: "undefined" is not valid JSON
+   at Object.eval sandbox-script.js:2:3).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="https://localhost:3001/transaction/transactions?username=Newman Testing&amp;useraccountno=0" id="11c926bc-f9e2-4fa2-978f-88023ee02146" timestamp="2024-11-08T17:34:11.621Z" tests="3" failures="6" errors="2" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: certificate has expired
+    at TLSSocket.onConnectSecure (node:_tls_wrap:1674:34)
+    at TLSSocket.emit (node:events:519:28)
+    at TLSSocket._finishInit (node:_tls_wrap:1085:8)
+    at ssl.onhandshakedone (node:_tls_wrap:871:12)
+
+---
+Iteration: 0
+RequestError: Error: certificate has expired
+    at TLSSocket.onConnectSecure (node:_tls_wrap:1674:34)
+    at TLSSocket.emit (node:events:519:28)
+    at TLSSocket._finishInit (node:_tls_wrap:1085:8)
+    at ssl.onhandshakedone (node:_tls_wrap:871:12)
+
+---
+]]></system-err>
+    <testcase name="Status code is 200" time="0.000" classname="HttpsLocalhost3001TransactionTransactionsUsernameNewmanTestingAmpUseraccountno0">
+      <failure type="AssertionFailure" message="expected PostmanResponse{ …(5) } to have property 'code'">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: 63f13934-7d69-4b79-9e37-e1bfe69fa1c7.]]>
+        <![CDATA[Collection name: APDSPOENT.]]>
+        <![CDATA[Request name: https://localhost:3001/transaction/transactions?username=Newman Testing&useraccountno=0.]]>
+        <![CDATA[Test description: Status code is 200.]]>
+        <![CDATA[Error message: expected PostmanResponse{ …(5) } to have property 'code'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected PostmanResponse{ …(5) } to have property 'code'
+   at Object.eval sandbox-script.js:1:4).]]>
+      </failure>
+    </testcase>
+    <testcase name="Response is an array" time="0.000" classname="HttpsLocalhost3001TransactionTransactionsUsernameNewmanTestingAmpUseraccountno0">
+      <failure type="AssertionFailure" message="&quot;undefined&quot; is not valid JSON">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: 63f13934-7d69-4b79-9e37-e1bfe69fa1c7.]]>
+        <![CDATA[Collection name: APDSPOENT.]]>
+        <![CDATA[Request name: https://localhost:3001/transaction/transactions?username=Newman Testing&useraccountno=0.]]>
+        <![CDATA[Test description: Response is an array.]]>
+        <![CDATA[Error message: "undefined" is not valid JSON.]]>
+        <![CDATA[Stacktrace: JSONError: "undefined" is not valid JSON
+   at Object.eval sandbox-script.js:2:4).]]>
+      </failure>
+    </testcase>
+    <testcase name="Response has expected fields" time="0.000" classname="HttpsLocalhost3001TransactionTransactionsUsernameNewmanTestingAmpUseraccountno0">
+      <failure type="AssertionFailure" message="&quot;undefined&quot; is not valid JSON">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: 63f13934-7d69-4b79-9e37-e1bfe69fa1c7.]]>
+        <![CDATA[Collection name: APDSPOENT.]]>
+        <![CDATA[Request name: https://localhost:3001/transaction/transactions?username=Newman Testing&useraccountno=0.]]>
+        <![CDATA[Test description: Response has expected fields.]]>
+        <![CDATA[Error message: "undefined" is not valid JSON.]]>
+        <![CDATA[Stacktrace: JSONError: "undefined" is not valid JSON
+   at Object.eval sandbox-script.js:3:4).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="https://localhost:3001/transaction/getapprovedtransactions" id="a9dd16dd-04f4-4c99-a35d-bc661bf36b2e" timestamp="2024-11-08T17:34:11.621Z" tests="3" failures="6" errors="2" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: certificate has expired
+    at TLSSocket.onConnectSecure (node:_tls_wrap:1674:34)
+    at TLSSocket.emit (node:events:519:28)
+    at TLSSocket._finishInit (node:_tls_wrap:1085:8)
+    at ssl.onhandshakedone (node:_tls_wrap:871:12)
+
+---
+Iteration: 0
+RequestError: Error: certificate has expired
+    at TLSSocket.onConnectSecure (node:_tls_wrap:1674:34)
+    at TLSSocket.emit (node:events:519:28)
+    at TLSSocket._finishInit (node:_tls_wrap:1085:8)
+    at ssl.onhandshakedone (node:_tls_wrap:871:12)
+
+---
+]]></system-err>
+    <testcase name="Status code is 200" time="0.000" classname="HttpsLocalhost3001TransactionGetapprovedtransactions">
+      <failure type="AssertionFailure" message="expected PostmanResponse{ …(5) } to have property 'code'">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: 63f13934-7d69-4b79-9e37-e1bfe69fa1c7.]]>
+        <![CDATA[Collection name: APDSPOENT.]]>
+        <![CDATA[Request name: https://localhost:3001/transaction/getapprovedtransactions.]]>
+        <![CDATA[Test description: Status code is 200.]]>
+        <![CDATA[Error message: expected PostmanResponse{ …(5) } to have property 'code'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected PostmanResponse{ …(5) } to have property 'code'
+   at Object.eval sandbox-script.js:1:5).]]>
+      </failure>
+    </testcase>
+    <testcase name="Response is an array" time="0.000" classname="HttpsLocalhost3001TransactionGetapprovedtransactions">
+      <failure type="AssertionFailure" message="&quot;undefined&quot; is not valid JSON">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: 63f13934-7d69-4b79-9e37-e1bfe69fa1c7.]]>
+        <![CDATA[Collection name: APDSPOENT.]]>
+        <![CDATA[Request name: https://localhost:3001/transaction/getapprovedtransactions.]]>
+        <![CDATA[Test description: Response is an array.]]>
+        <![CDATA[Error message: "undefined" is not valid JSON.]]>
+        <![CDATA[Stacktrace: JSONError: "undefined" is not valid JSON
+   at Object.eval sandbox-script.js:2:5).]]>
+      </failure>
+    </testcase>
+    <testcase name="Transactions are pending" time="0.000" classname="HttpsLocalhost3001TransactionGetapprovedtransactions">
+      <failure type="AssertionFailure" message="&quot;undefined&quot; is not valid JSON">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: 63f13934-7d69-4b79-9e37-e1bfe69fa1c7.]]>
+        <![CDATA[Collection name: APDSPOENT.]]>
+        <![CDATA[Request name: https://localhost:3001/transaction/getapprovedtransactions.]]>
+        <![CDATA[Test description: Transactions are pending.]]>
+        <![CDATA[Error message: "undefined" is not valid JSON.]]>
+        <![CDATA[Stacktrace: JSONError: "undefined" is not valid JSON
+   at Object.eval sandbox-script.js:3:5).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="https://localhost:3001/transaction/getpendingtransactions" id="e858a27a-3fdb-4221-954b-bdb7b670bb72" timestamp="2024-11-08T17:34:11.621Z" tests="3" failures="6" errors="2" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: certificate has expired
+    at TLSSocket.onConnectSecure (node:_tls_wrap:1674:34)
+    at TLSSocket.emit (node:events:519:28)
+    at TLSSocket._finishInit (node:_tls_wrap:1085:8)
+    at ssl.onhandshakedone (node:_tls_wrap:871:12)
+
+---
+Iteration: 0
+RequestError: Error: certificate has expired
+    at TLSSocket.onConnectSecure (node:_tls_wrap:1674:34)
+    at TLSSocket.emit (node:events:519:28)
+    at TLSSocket._finishInit (node:_tls_wrap:1085:8)
+    at ssl.onhandshakedone (node:_tls_wrap:871:12)
+
+---
+]]></system-err>
+    <testcase name="Status code is 200" time="0.000" classname="HttpsLocalhost3001TransactionGetpendingtransactions">
+      <failure type="AssertionFailure" message="expected PostmanResponse{ …(5) } to have property 'code'">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: 63f13934-7d69-4b79-9e37-e1bfe69fa1c7.]]>
+        <![CDATA[Collection name: APDSPOENT.]]>
+        <![CDATA[Request name: https://localhost:3001/transaction/getpendingtransactions.]]>
+        <![CDATA[Test description: Status code is 200.]]>
+        <![CDATA[Error message: expected PostmanResponse{ …(5) } to have property 'code'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected PostmanResponse{ …(5) } to have property 'code'
+   at Object.eval sandbox-script.js:1:6).]]>
+      </failure>
+    </testcase>
+    <testcase name="Response is an array" time="0.000" classname="HttpsLocalhost3001TransactionGetpendingtransactions">
+      <failure type="AssertionFailure" message="&quot;undefined&quot; is not valid JSON">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: 63f13934-7d69-4b79-9e37-e1bfe69fa1c7.]]>
+        <![CDATA[Collection name: APDSPOENT.]]>
+        <![CDATA[Request name: https://localhost:3001/transaction/getpendingtransactions.]]>
+        <![CDATA[Test description: Response is an array.]]>
+        <![CDATA[Error message: "undefined" is not valid JSON.]]>
+        <![CDATA[Stacktrace: JSONError: "undefined" is not valid JSON
+   at Object.eval sandbox-script.js:2:6).]]>
+      </failure>
+    </testcase>
+    <testcase name="Transactions are pending" time="0.000" classname="HttpsLocalhost3001TransactionGetpendingtransactions">
+      <failure type="AssertionFailure" message="&quot;undefined&quot; is not valid JSON">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: 63f13934-7d69-4b79-9e37-e1bfe69fa1c7.]]>
+        <![CDATA[Collection name: APDSPOENT.]]>
+        <![CDATA[Request name: https://localhost:3001/transaction/getpendingtransactions.]]>
+        <![CDATA[Test description: Transactions are pending.]]>
+        <![CDATA[Error message: "undefined" is not valid JSON.]]>
+        <![CDATA[Stacktrace: JSONError: "undefined" is not valid JSON
+   at Object.eval sandbox-script.js:3:6).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="https://localhost:3001/transaction/updatetoapproved/672e20d26f8bec0b29698f26" id="bc47452f-aebb-4d47-b85d-7d32e447eb31" timestamp="2024-11-08T17:34:11.621Z" tests="1" failures="2" errors="2" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: certificate has expired
+    at TLSSocket.onConnectSecure (node:_tls_wrap:1674:34)
+    at TLSSocket.emit (node:events:519:28)
+    at TLSSocket._finishInit (node:_tls_wrap:1085:8)
+    at ssl.onhandshakedone (node:_tls_wrap:871:12)
+
+---
+Iteration: 0
+RequestError: Error: certificate has expired
+    at TLSSocket.onConnectSecure (node:_tls_wrap:1674:34)
+    at TLSSocket.emit (node:events:519:28)
+    at TLSSocket._finishInit (node:_tls_wrap:1085:8)
+    at ssl.onhandshakedone (node:_tls_wrap:871:12)
+
+---
+]]></system-err>
+    <testcase name="Status code is 200" time="0.000" classname="HttpsLocalhost3001TransactionUpdatetoapproved672E20D26F8Bec0B29698F26">
+      <failure type="AssertionFailure" message="expected PostmanResponse{ …(5) } to have property 'code'">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: 63f13934-7d69-4b79-9e37-e1bfe69fa1c7.]]>
+        <![CDATA[Collection name: APDSPOENT.]]>
+        <![CDATA[Request name: https://localhost:3001/transaction/updatetoapproved/672e20d26f8bec0b29698f26.]]>
+        <![CDATA[Test description: Status code is 200.]]>
+        <![CDATA[Error message: expected PostmanResponse{ …(5) } to have property 'code'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected PostmanResponse{ …(5) } to have property 'code'
+   at Object.eval sandbox-script.js:1:7).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="https://localhost:3001/transaction/updatetorejected/672e20d26f8bec0b29698f26" id="10f0b31c-827a-41d4-b6e0-0bf99c19cf8b" timestamp="2024-11-08T17:34:11.621Z" tests="1" failures="2" errors="2" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: certificate has expired
+    at TLSSocket.onConnectSecure (node:_tls_wrap:1674:34)
+    at TLSSocket.emit (node:events:519:28)
+    at TLSSocket._finishInit (node:_tls_wrap:1085:8)
+    at ssl.onhandshakedone (node:_tls_wrap:871:12)
+
+---
+Iteration: 0
+RequestError: Error: certificate has expired
+    at TLSSocket.onConnectSecure (node:_tls_wrap:1674:34)
+    at TLSSocket.emit (node:events:519:28)
+    at TLSSocket._finishInit (node:_tls_wrap:1085:8)
+    at ssl.onhandshakedone (node:_tls_wrap:871:12)
+
+---
+]]></system-err>
+    <testcase name="Status code is 200" time="0.000" classname="HttpsLocalhost3001TransactionUpdatetorejected672E20D26F8Bec0B29698F26">
+      <failure type="AssertionFailure" message="expected PostmanResponse{ …(5) } to have property 'code'">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: 63f13934-7d69-4b79-9e37-e1bfe69fa1c7.]]>
+        <![CDATA[Collection name: APDSPOENT.]]>
+        <![CDATA[Request name: https://localhost:3001/transaction/updatetorejected/672e20d26f8bec0b29698f26.]]>
+        <![CDATA[Test description: Status code is 200.]]>
+        <![CDATA[Error message: expected PostmanResponse{ …(5) } to have property 'code'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected PostmanResponse{ …(5) } to have property 'code'
+   at Object.eval sandbox-script.js:1:8).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="https://localhost:3001/transaction/updatetosubmittedtoswift/672e20d26f8bec0b29698f26" id="af4b408c-5bc6-46ea-a22d-4bdb5aab0fb8" timestamp="2024-11-08T17:34:11.621Z" tests="1" failures="2" errors="2" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: certificate has expired
+    at TLSSocket.onConnectSecure (node:_tls_wrap:1674:34)
+    at TLSSocket.emit (node:events:519:28)
+    at TLSSocket._finishInit (node:_tls_wrap:1085:8)
+    at ssl.onhandshakedone (node:_tls_wrap:871:12)
+
+---
+Iteration: 0
+RequestError: Error: certificate has expired
+    at TLSSocket.onConnectSecure (node:_tls_wrap:1674:34)
+    at TLSSocket.emit (node:events:519:28)
+    at TLSSocket._finishInit (node:_tls_wrap:1085:8)
+    at ssl.onhandshakedone (node:_tls_wrap:871:12)
+
+---
+]]></system-err>
+    <testcase name="Status code is 200" time="0.000" classname="HttpsLocalhost3001TransactionUpdatetosubmittedtoswift672E20D26F8Bec0B29698F26">
+      <failure type="AssertionFailure" message="expected PostmanResponse{ …(5) } to have property 'code'">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: 63f13934-7d69-4b79-9e37-e1bfe69fa1c7.]]>
+        <![CDATA[Collection name: APDSPOENT.]]>
+        <![CDATA[Request name: https://localhost:3001/transaction/updatetosubmittedtoswift/672e20d26f8bec0b29698f26.]]>
+        <![CDATA[Test description: Status code is 200.]]>
+        <![CDATA[Error message: expected PostmanResponse{ …(5) } to have property 'code'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected PostmanResponse{ …(5) } to have property 'code'
+   at Object.eval sandbox-script.js:1:9).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+</testsuites>

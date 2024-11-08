@@ -1,0 +1,766 @@
+{
+	"info": {
+		"_postman_id": "63f13934-7d69-4b79-9e37-e1bfe69fa1c7",
+		"name": "APDSPOENT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33385025"
+	},
+	"item": [
+		{
+			"name": "https://localhost:3001/user/login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 401 for failed login\", function () {\r",
+							"    if (pm.response.code === 401) {\r",
+							"        pm.expect(pm.response.json().message).to.eql(\"Authentication failed\");\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has a token for successful login\", function () {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    if (pm.response.code === 200) {\r",
+							"        pm.expect(responseJson).to.have.property(\"token\");\r",
+							"        pm.expect(responseJson.token).to.not.be.empty;\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Correct user type code in response\", function () {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    if (pm.response.code === 200) {\r",
+							"        pm.expect(responseJson).to.have.property(\"code\");\r",
+							"        pm.expect(responseJson.code).to.be.oneOf([1, 2]);\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check response message\", function () {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    if (responseJson.code === 2) {\r",
+							"        pm.expect(responseJson.message).to.eql(\"Customer login successful\");\r",
+							"    } else if (responseJson.code === 1) {\r",
+							"        pm.expect(responseJson.message).to.eql(\"Employee login successful\");\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Token is a valid JWT\", function () {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson).to.have.property(\"token\");\r",
+							"    pm.expect(responseJson.token.split('.')).to.have.lengthOf(3);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Kiashen Maharajh\",\r\n    \"accountnumber\": \"0123456789\",\r\n    \"password\": \"sharkfinsoup\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:3001/user/login",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:3001/user/login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 401 for failed login\", function () {\r",
+							"    if (pm.response.code === 401) {\r",
+							"        pm.expect(pm.response.json().message).to.eql(\"Authentication failed\");\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has a token for successful login\", function () {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    if (pm.response.code === 200) {\r",
+							"        pm.expect(responseJson).to.have.property(\"token\");\r",
+							"        pm.expect(responseJson.token).to.not.be.empty;\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Correct user type code in response\", function () {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    if (pm.response.code === 200) {\r",
+							"        pm.expect(responseJson).to.have.property(\"code\");\r",
+							"        pm.expect(responseJson.code).to.be.oneOf([1, 2]);\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check response message\", function () {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    if (responseJson.code === 2) {\r",
+							"        pm.expect(responseJson.message).to.eql(\"Customer login successful\");\r",
+							"    } else if (responseJson.code === 1) {\r",
+							"        pm.expect(responseJson.message).to.eql(\"Employee login successful\");\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Token is a valid JWT\", function () {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson).to.have.property(\"token\");\r",
+							"    pm.expect(responseJson.token.split('.')).to.have.lengthOf(3);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Marc Jacobs\",\r\n    \"accountnumber\": \"7864298763\",\r\n    \"password\": \"iamworking\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:3001/user/login",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:3001/transaction",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Pre-request script to ensure the token is set\r",
+							"if (!pm.environment.get(\"authToken\")) {\r",
+							"    pm.sendRequest({\r",
+							"        url: 'https://localhost:3001/user/login',\r",
+							"        method: 'POST',\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json'\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({\r",
+							"                name: \"Newman Testing\",\r",
+							"                accountnumber: \"0\",\r",
+							"                password: \"test\"\r",
+							"            })\r",
+							"        }\r",
+							"    }, function (err, res) {\r",
+							"        if (err) {\r",
+							"            console.log(err);\r",
+							"        } else {\r",
+							"            pm.environment.set(\"authToken\", res.json().token);\r",
+							"        }\r",
+							"    });\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is an array of records\", function () {\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.be.an(\"array\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{authToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:3001/transaction",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:3001/transaction/transactions?username=Newman Testing&useraccountno=0",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Pre-request script to ensure the token is set\r",
+							"if (!pm.environment.get(\"authToken\")) {\r",
+							"    pm.sendRequest({\r",
+							"        url: 'https://localhost:3001/user/login',\r",
+							"        method: 'POST',\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json'\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({\r",
+							"                name: \"Newman Testing\",\r",
+							"                accountnumber: \"0\",\r",
+							"                password: \"test\"\r",
+							"            })\r",
+							"        }\r",
+							"    }, function (err, res) {\r",
+							"        if (err) {\r",
+							"            console.log(err);\r",
+							"        } else {\r",
+							"            pm.environment.set(\"authToken\", res.json().token);\r",
+							"        }\r",
+							"    });\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is an array\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.be.an('array');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has expected fields\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    if (jsonData.length > 0) {\r",
+							"        pm.expect(jsonData[0]).to.have.property('username');\r",
+							"        pm.expect(jsonData[0]).to.have.property('useraccountno');\r",
+							"    }\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{authToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:3001/transaction/transactions?username=Newman Testing&useraccountno=0",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"transaction",
+						"transactions"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "Newman Testing"
+						},
+						{
+							"key": "useraccountno",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:3001/transaction/getapprovedtransactions",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Pre-request script to ensure the token is set\r",
+							"if (!pm.environment.get(\"authToken\")) {\r",
+							"    pm.sendRequest({\r",
+							"        url: 'https://localhost:3001/user/login',\r",
+							"        method: 'POST',\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json'\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({\r",
+							"                name: \"Newman Testing\",\r",
+							"                accountnumber: \"0\",\r",
+							"                password: \"test\"\r",
+							"            })\r",
+							"        }\r",
+							"    }, function (err, res) {\r",
+							"        if (err) {\r",
+							"            console.log(err);\r",
+							"        } else {\r",
+							"            pm.environment.set(\"authToken\", res.json().token);\r",
+							"        }\r",
+							"    });\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is an array\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.be.an('array');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Transactions are pending\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    jsonData.forEach(transaction => {\r",
+							"        pm.expect(transaction.requeststatus).to.eql(\"Approved (Verified)\");\r",
+							"    });\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{authToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:3001/transaction/getapprovedtransactions",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"transaction",
+						"getapprovedtransactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:3001/transaction/getpendingtransactions",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Pre-request script to ensure the token is set\r",
+							"if (!pm.environment.get(\"authToken\")) {\r",
+							"    pm.sendRequest({\r",
+							"        url: 'https://localhost:3001/user/login',\r",
+							"        method: 'POST',\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json'\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({\r",
+							"                name: \"Newman Testing\",\r",
+							"                accountnumber: \"0\",\r",
+							"                password: \"test\"\r",
+							"            })\r",
+							"        }\r",
+							"    }, function (err, res) {\r",
+							"        if (err) {\r",
+							"            console.log(err);\r",
+							"        } else {\r",
+							"            pm.environment.set(\"authToken\", res.json().token);\r",
+							"        }\r",
+							"    });\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is an array\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.be.an('array');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Transactions are pending\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    jsonData.forEach(transaction => {\r",
+							"        pm.expect(transaction.requeststatus).to.eql(\"Pending\");\r",
+							"    });\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{authToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:3001/transaction/getpendingtransactions",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"transaction",
+						"getpendingtransactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:3001/transaction/updatetoapproved/672e20d26f8bec0b29698f26",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Pre-request script to ensure the token is set\r",
+							"if (!pm.environment.get(\"authToken\")) {\r",
+							"    pm.sendRequest({\r",
+							"        url: 'https://localhost:3001/user/login',\r",
+							"        method: 'POST',\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json'\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({\r",
+							"                name: \"Newman Testing\",\r",
+							"                accountnumber: \"0\",\r",
+							"                password: \"test\"\r",
+							"            })\r",
+							"        }\r",
+							"    }, function (err, res) {\r",
+							"        if (err) {\r",
+							"            console.log(err);\r",
+							"        } else {\r",
+							"            pm.environment.set(\"authToken\", res.json().token);\r",
+							"        }\r",
+							"    });\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{authToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:3001/transaction/updatetoapproved/672e20d26f8bec0b29698f26",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"transaction",
+						"updatetoapproved",
+						"672e20d26f8bec0b29698f26"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:3001/transaction/updatetorejected/672e20d26f8bec0b29698f26",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Pre-request script to ensure the token is set\r",
+							"if (!pm.environment.get(\"authToken\")) {\r",
+							"    pm.sendRequest({\r",
+							"        url: 'https://localhost:3001/user/login',\r",
+							"        method: 'POST',\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json'\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({\r",
+							"                name: \"Newman Testing\",\r",
+							"                accountnumber: \"0\",\r",
+							"                password: \"test\"\r",
+							"            })\r",
+							"        }\r",
+							"    }, function (err, res) {\r",
+							"        if (err) {\r",
+							"            console.log(err);\r",
+							"        } else {\r",
+							"            pm.environment.set(\"authToken\", res.json().token);\r",
+							"        }\r",
+							"    });\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{authToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:3001/transaction/updatetorejected/672e20d26f8bec0b29698f26",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"transaction",
+						"updatetorejected",
+						"672e20d26f8bec0b29698f26"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:3001/transaction/updatetosubmittedtoswift/672e20d26f8bec0b29698f26",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Pre-request script to ensure the token is set\r",
+							"if (!pm.environment.get(\"authToken\")) {\r",
+							"    pm.sendRequest({\r",
+							"        url: 'https://localhost:3001/user/login',\r",
+							"        method: 'POST',\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json'\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({\r",
+							"                name: \"Newman Testing\",\r",
+							"                accountnumber: \"0\",\r",
+							"                password: \"test\"\r",
+							"            })\r",
+							"        }\r",
+							"    }, function (err, res) {\r",
+							"        if (err) {\r",
+							"            console.log(err);\r",
+							"        } else {\r",
+							"            pm.environment.set(\"authToken\", res.json().token);\r",
+							"        }\r",
+							"    });\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{authToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:3001/transaction/updatetosubmittedtoswift/672e20d26f8bec0b29698f26",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"transaction",
+						"updatetosubmittedtoswift",
+						"672e20d26f8bec0b29698f26"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

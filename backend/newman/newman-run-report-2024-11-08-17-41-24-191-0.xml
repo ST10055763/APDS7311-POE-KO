@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="APDSPOENT" tests="9" time="2.019">
+  <testsuite name="https://localhost:3001/user/login" id="2dd071eb-d84f-4e87-b884-80c805f5a4c1" timestamp="2024-11-08T17:41:21.159Z" tests="6" failures="0" errors="0" time="0.425">
+    <testcase name="Status code is 200" time="0.425" classname="HttpsLocalhost3001UserLogin"/>
+    <testcase name="Status code is 401 for failed login" time="0.425" classname="HttpsLocalhost3001UserLogin"/>
+    <testcase name="Response has a token for successful login" time="0.425" classname="HttpsLocalhost3001UserLogin"/>
+    <testcase name="Correct user type code in response" time="0.425" classname="HttpsLocalhost3001UserLogin"/>
+    <testcase name="Check response message" time="0.425" classname="HttpsLocalhost3001UserLogin"/>
+    <testcase name="Token is a valid JWT" time="0.425" classname="HttpsLocalhost3001UserLogin"/>
+  </testsuite>
+  <testsuite name="https://localhost:3001/user/login" id="d6d67a8b-2121-4f45-8b81-290ab89c2ac4" timestamp="2024-11-08T17:41:21.159Z" tests="6" failures="0" errors="0" time="0.247">
+    <testcase name="Status code is 200" time="0.247" classname="HttpsLocalhost3001UserLogin"/>
+    <testcase name="Status code is 401 for failed login" time="0.247" classname="HttpsLocalhost3001UserLogin"/>
+    <testcase name="Response has a token for successful login" time="0.247" classname="HttpsLocalhost3001UserLogin"/>
+    <testcase name="Correct user type code in response" time="0.247" classname="HttpsLocalhost3001UserLogin"/>
+    <testcase name="Check response message" time="0.247" classname="HttpsLocalhost3001UserLogin"/>
+    <testcase name="Token is a valid JWT" time="0.247" classname="HttpsLocalhost3001UserLogin"/>
+  </testsuite>
+  <testsuite name="https://localhost:3001/transaction" id="85221148-53b1-4776-960a-ac3df9422385" timestamp="2024-11-08T17:41:21.159Z" tests="2" failures="0" errors="0" time="0.169">
+    <testcase name="Status code is 200" time="0.169" classname="HttpsLocalhost3001Transaction"/>
+    <testcase name="Response is an array of records" time="0.169" classname="HttpsLocalhost3001Transaction"/>
+  </testsuite>
+  <testsuite name="https://localhost:3001/transaction/transactions?username=Newman Testing&amp;useraccountno=0" id="467c1f15-1e6e-4601-b3fb-62756de1dae7" timestamp="2024-11-08T17:41:21.159Z" tests="3" failures="0" errors="0" time="0.167">
+    <testcase name="Status code is 200" time="0.167" classname="HttpsLocalhost3001TransactionTransactionsUsernameNewmanTestingAmpUseraccountno0"/>
+    <testcase name="Response is an array" time="0.167" classname="HttpsLocalhost3001TransactionTransactionsUsernameNewmanTestingAmpUseraccountno0"/>
+    <testcase name="Response has expected fields" time="0.167" classname="HttpsLocalhost3001TransactionTransactionsUsernameNewmanTestingAmpUseraccountno0"/>
+  </testsuite>
+  <testsuite name="https://localhost:3001/transaction/getapprovedtransactions" id="0a33d6ae-896e-4ae7-b71d-8c067b71dc5d" timestamp="2024-11-08T17:41:21.159Z" tests="3" failures="0" errors="0" time="0.164">
+    <testcase name="Status code is 200" time="0.164" classname="HttpsLocalhost3001TransactionGetapprovedtransactions"/>
+    <testcase name="Response is an array" time="0.164" classname="HttpsLocalhost3001TransactionGetapprovedtransactions"/>
+    <testcase name="Transactions are pending" time="0.164" classname="HttpsLocalhost3001TransactionGetapprovedtransactions"/>
+  </testsuite>
+  <testsuite name="https://localhost:3001/transaction/getpendingtransactions" id="93c0b040-3a3b-4b21-b7f4-5e61f8b95c83" timestamp="2024-11-08T17:41:21.159Z" tests="3" failures="0" errors="0" time="0.164">
+    <testcase name="Status code is 200" time="0.164" classname="HttpsLocalhost3001TransactionGetpendingtransactions"/>
+    <testcase name="Response is an array" time="0.164" classname="HttpsLocalhost3001TransactionGetpendingtransactions"/>
+    <testcase name="Transactions are pending" time="0.164" classname="HttpsLocalhost3001TransactionGetpendingtransactions"/>
+  </testsuite>
+  <testsuite name="https://localhost:3001/transaction/updatetoapproved/672e20d26f8bec0b29698f26" id="ccacf133-2d99-49ce-8141-001bb4caa38d" timestamp="2024-11-08T17:41:21.159Z" tests="1" failures="0" errors="0" time="0.173">
+    <testcase name="Status code is 200" time="0.173" classname="HttpsLocalhost3001TransactionUpdatetoapproved672E20D26F8Bec0B29698F26"/>
+  </testsuite>
+  <testsuite name="https://localhost:3001/transaction/updatetorejected/672e20d26f8bec0b29698f26" id="51388480-88b2-4048-8d7b-e0f4089d60fc" timestamp="2024-11-08T17:41:21.159Z" tests="1" failures="0" errors="0" time="0.171">
+    <testcase name="Status code is 200" time="0.171" classname="HttpsLocalhost3001TransactionUpdatetorejected672E20D26F8Bec0B29698F26"/>
+  </testsuite>
+  <testsuite name="https://localhost:3001/transaction/updatetosubmittedtoswift/672e20d26f8bec0b29698f26" id="61a3171d-941f-4b36-be1f-ef4c5bad1b07" timestamp="2024-11-08T17:41:21.159Z" tests="1" failures="0" errors="0" time="0.170">
+    <testcase name="Status code is 200" time="0.170" classname="HttpsLocalhost3001TransactionUpdatetosubmittedtoswift672E20D26F8Bec0B29698F26"/>
+  </testsuite>
+</testsuites>
