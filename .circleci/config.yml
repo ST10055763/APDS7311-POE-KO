@@ -1,11 +1,8 @@
-# This config was automatically generated from your source code
-# Stacks detected: deps:node:backend
 version: 2.1
 orbs:
   node: circleci/node@5
 jobs:
   test-node:
-    # Install node dependencies and run tests
     executor: node/default
     working_directory: ~/project/backend
     steps:
@@ -23,13 +20,11 @@ jobs:
           key: node-modules-{{ checksum "package-lock.json" }}
       - run:
           name: Run tests
-          command: echo \"No test specified in package.json\"
+          command: echo "No test specified in package.json"
   deploy:
-    # This is an example deploy job, not actually used by the workflow
     docker:
       - image: cimg/base:stable
     steps:
-      # Replace this with steps to deploy to users
       - run:
           name: deploy
           command: '#e.g. ./deploy.sh'
@@ -39,8 +34,8 @@ jobs:
       - image: sonarsource/sonar-scanner-cli
     resource_class: small
     steps:
-      - run: ls -l # or "echo 'Checking environment'"
-      - run: sonar-scanner -v # Verify if sonar-scanner is available
+      - run: ls -l
+      - run: sonar-scanner -v
       - attach_workspace:
           at: ~/workspace
       - run: | 
@@ -62,17 +57,15 @@ jobs:
     steps:
       - checkout
       - run:
-        name: Install dependencies
-        command: |
-          cd BACKEND
-          npm install
+          command: |
+            cd BACKEND
+            npm install
       - run:
-        name: Run Newman tests
-        command: |
-          cd BACKEND
-          npm run test-api &
+          command: |
+            cd BACKEND
+            npm run test-api &
       - attach_workspace:
-        at: ~/workspace
+          at: ~/workspace
 workflows:
   build-and-test:
     jobs:
@@ -81,6 +74,3 @@ workflows:
       - newmantest:
           requires:
             - sonarqube
-    # - deploy:
-    #     requires:
-    #       - test-node
