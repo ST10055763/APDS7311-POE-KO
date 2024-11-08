@@ -58,11 +58,11 @@ jobs:
       - checkout
       - run:
           command: |
-            cd BACKEND
+            cd backend
             npm install
       - run:
           command: |
-            cd BACKEND
+            cd backend
             npm run test-api &
       - attach_workspace:
           at: ~/workspace
