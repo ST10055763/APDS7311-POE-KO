@@ -58,6 +58,20 @@
     margin-right: 8px; /* Adds space between the icon and the text */
     vertical-align: middle; /* Aligns the icon with the text */
 }
+.btn-success {
+    background-color: #28a745; /* Green color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-success:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
 
 
 .table-container {

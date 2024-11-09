@@ -31,11 +31,12 @@ app.use(helmet());
 
 // Configure CORS to allow only frontend origin
 app.use(cors({
-    origin: 'https://localhost:3000', // Allow only the frontend origin
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
-    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
-    credentials: true
+    origin: 'https://localhost:3000',  // Frontend URL
+    methods: ['GET', 'POST', 'PATCH', 'DELETE', 'PUT'],  // Allow PATCH method
+    allowedHeaders: ['Content-Type', 'Authorization'],  // Headers needed for requests
+    credentials: true  // Allow cookies or other credentials
 }));
+
 
 app.use(express.json());
 app.options('*', cors());
