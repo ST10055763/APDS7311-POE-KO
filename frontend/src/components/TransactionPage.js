@@ -14,6 +14,7 @@ export default function TransactionPage() {
         swiftcode: ""
     });
 
+    const [errors, setErrors] = useState({});
     const navigate = useNavigate();
 
     const currencyOptions = [
@@ -53,6 +54,8 @@ export default function TransactionPage() {
         }
     }, []); 
 
+  
+
     // Fetch existing transactions
     useEffect(() => {
         const fetchTransactions = async () => {
@@ -74,9 +77,28 @@ export default function TransactionPage() {
         fetchTransactions();
     }, []);
 
+      //added validation for payee acc num
+      function validatePayeeAccountNumber(accountNumber) {
+        return /^\d{8,12}$/.test(accountNumber);
+    }
+
     // Handle form submission to create a new transaction
     async function onSubmit(e) {
         e.preventDefault();
+
+        const newErrors = {};
+
+        if (!form.amountpay) newErrors.amountpay = "Amount to Pay is required";
+        if (!form.paymentcurrency) newErrors.paymentcurrency = "Payment Currency is required";
+        if (!form.payeename) newErrors.payeename = "Payee Name is required";
+        if (!validatePayeeAccountNumber(form.payeeaccountno)) {
+            setErrors("Payee account number must be between 8 and 12 digits.");
+            return;
+        }
+
+        setErrors(newErrors); 
+
+        if (Object.keys(newErrors).length > 0) return;
 
         const response = await fetch("https://localhost:3001/transaction/upload", {
             method: "POST",
@@ -146,6 +168,7 @@ export default function TransactionPage() {
                             value={form.amountpay}
                             onChange={(e) => updateForm({ amountpay: e.target.value })}
                         />
+                       {errors.amountpay && <p className="error-message">{String(errors.amountpay)}</p>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="paymentcurrency">Payment Currency (Select from Dropdown)</label>
@@ -161,6 +184,7 @@ export default function TransactionPage() {
                                 </option>
                             ))}
                         </select>
+                        {errors.paymentcurrency && <p className="error-message">{String(errors.paymentcurrency)}</p>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="paymentprovider">Payment Provider</label>
@@ -181,6 +205,7 @@ export default function TransactionPage() {
                             value={form.payeename}
                             onChange={(e) => updateForm({ payeename: e.target.value })}
                         />
+                         {errors.payeename && <p className="error-message">{String(errors.payeename)}</p>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="payeeaccountno">Payee Account Number</label>
@@ -191,6 +216,7 @@ export default function TransactionPage() {
                             value={form.payeeaccountno}
                             onChange={(e) => updateForm({ payeeaccountno: e.target.value })}
                         />
+                          {errors.payeeaccountno && <p className="error-message">{String(errors.payeeaccountno)}</p>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="swiftcode">SWIFT Code</label>
@@ -207,6 +233,7 @@ export default function TransactionPage() {
                             type="submit"
                             value="Create Transaction"
                             className="btn btn-primary"
+                            //disabled={Object.keys(errors).length > 0}
                         />
                     </div>
                 </form>
