@@ -63,7 +63,7 @@ jobs:
       - run:
           command: |
             cd backend
-            npm run test-api &
+            newman run ./APDSPOENT.postman_collection.json -e ./APDSPOENT.postman_environment.json --insecure --reporters cli,junit
       - attach_workspace:
           at: ~/workspace
 workflows:
