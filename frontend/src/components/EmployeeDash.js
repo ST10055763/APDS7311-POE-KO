@@ -47,6 +47,33 @@ function EmployeeDash() {
     
         fetchTransactions();
     }, []);
+
+    const updateTransactionStatus = async( id, status) =>
+    {
+        try{
+            const response = await fetch('https://localhost:3001/transaction/${status}/${id}',{
+                method:"PATCH",
+                headers:{
+                    "Authorization": `Bearer ${localStorage.getItem("jwt")}`,
+                    "Content-Type": "application/json"
+                }
+            });
+            if (response.ok) {
+                setTransactions(prevTransactions =>
+                    prevTransactions.map(transaction =>
+                        transaction._id === id
+                            ? { ...transaction, requeststatus: status === 'updatetoapproved' ? 'Approved (Verified)' : 'Rejected' }
+                            : transaction
+                    )
+                );
+            } else {
+                console.error("Failed to update transaction status");
+            }
+               
+        }catch(error){
+            console.error("Error updating transaction status", error);
+        }
+    }
     
     const handleLogout =() =>{
         localStorage.removeItem("name");
@@ -124,6 +151,16 @@ function EmployeeDash() {
                                         <td>{transaction.payeeaccountno}</td>
                                         <td>{transaction.swiftcode}</td>
                                         <td>{transaction.requeststatus}</td>
+                                        <td>
+                                            <button
+                                                className="btn btn-success"
+                                                onClick={() => updateTransactionStatus(transaction._id, 'updatetoapproved')}
+                                                > Approve</button>
+                                                <button
+                                                    className="btn btn-danger"
+                                                    onClick={()=> updateTransactionStatus(transaction._id, 'updatetorejected')}
+                                                    >Reject</button>
+                                        </td>
                                     </tr>
                                 ))}
                             </tbody>
