@@ -47,6 +47,41 @@ function SubmitToSwift() {
     
         fetchTransactions();
     }, []);
+   
+    const submitToSwift = async (id) => {
+        setLoading(true);
+        try {
+            const headers = {
+                "Authorization": `Bearer ${localStorage.getItem("jwt")}`,
+                "Content-Type": "application/json",
+            };
+    
+            const response = await fetch(`https://localhost:3001/transaction/updatetosubmittedtoswift/${id}`, {
+                method: "PATCH",
+                headers: headers, // Add authorization headers
+            });
+    
+            if (response.ok) {
+                alert("Transaction forwarded to SWIFT for Payment!");
+                // Update the local state to reflect the new status
+                setTransactions((prevTransactions) =>
+                    prevTransactions.map((transaction) =>
+                        transaction._id === id
+                            ? { ...transaction, requeststatus: "Forwarded to SWIFT for Payment" }
+                            : transaction
+                    )
+                );
+            } else {
+                console.error("Failed to forward transaction to SWIFT");
+                alert("Error: Could not forward transaction to SWIFT");
+            }
+        } catch (error) {
+            console.error("Error forwarding transaction to SWIFT:", error);
+            alert("Error: Could not forward transaction to SWIFT");
+        } finally {
+            setLoading(false);
+        }
+    };
     
     const handleLogout =() =>{
         localStorage.removeItem("name");
@@ -122,6 +157,14 @@ function SubmitToSwift() {
                                         <td>{transaction.payeeaccountno}</td>
                                         <td>{transaction.swiftcode}</td>
                                         <td>{transaction.requeststatus}</td>
+                                        <td>
+                                        <button
+    className="btn btn-success"
+    onClick={() => submitToSwift(transaction._id)}
+>
+    Submit to SWIFT
+</button>
+                                        </td>
                                     </tr>
                                 ))}
                             </tbody>

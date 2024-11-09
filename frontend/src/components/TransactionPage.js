@@ -39,6 +39,7 @@ export default function TransactionPage() {
     function generateSWIFTCode() {
         return Math.floor(1000000000 + Math.random() * 9000000000).toString();
     }
+    
     useEffect(() => {
         const storedName = localStorage.getItem("name");
         const storedAccountNumber = localStorage.getItem("accountnumber");
@@ -53,8 +54,6 @@ export default function TransactionPage() {
             }));
         }
     }, []); 
-
-  
 
     // Fetch existing transactions
     useEffect(() => {
@@ -77,8 +76,8 @@ export default function TransactionPage() {
         fetchTransactions();
     }, []);
 
-      //added validation for payee acc num
-      function validatePayeeAccountNumber(accountNumber) {
+    // Validate payee account number
+    function validatePayeeAccountNumber(accountNumber) {
         return /^\d{8,12}$/.test(accountNumber);
     }
 
@@ -92,8 +91,7 @@ export default function TransactionPage() {
         if (!form.paymentcurrency) newErrors.paymentcurrency = "Payment Currency is required";
         if (!form.payeename) newErrors.payeename = "Payee Name is required";
         if (!validatePayeeAccountNumber(form.payeeaccountno)) {
-            setErrors("Payee account number must be between 8 and 12 digits.");
-            return;
+            newErrors.payeeaccountno = "Payee account number must be between 8 and 12 digits.";
         }
 
         setErrors(newErrors); 
@@ -168,7 +166,7 @@ export default function TransactionPage() {
                             value={form.amountpay}
                             onChange={(e) => updateForm({ amountpay: e.target.value })}
                         />
-                       {errors.amountpay && <p className="error-message">{String(errors.amountpay)}</p>}
+                        {errors.amountpay && <p className="error-message">{String(errors.amountpay)}</p>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="paymentcurrency">Payment Currency (Select from Dropdown)</label>
@@ -205,7 +203,7 @@ export default function TransactionPage() {
                             value={form.payeename}
                             onChange={(e) => updateForm({ payeename: e.target.value })}
                         />
-                         {errors.payeename && <p className="error-message">{String(errors.payeename)}</p>}
+                        {errors.payeename && <p className="error-message">{String(errors.payeename)}</p>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="payeeaccountno">Payee Account Number</label>
@@ -216,7 +214,7 @@ export default function TransactionPage() {
                             value={form.payeeaccountno}
                             onChange={(e) => updateForm({ payeeaccountno: e.target.value })}
                         />
-                          {errors.payeeaccountno && <p className="error-message">{String(errors.payeeaccountno)}</p>}
+                        {errors.payeeaccountno && <p className="error-message">{String(errors.payeeaccountno)}</p>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="swiftcode">SWIFT Code</label>
